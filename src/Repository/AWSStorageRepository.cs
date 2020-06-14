@@ -24,7 +24,7 @@ namespace CloudAgnosticStorageAPI.Repository
             {
                 using (Stream responseStream = httpResponse.GetResponseStream())
                 {
-                    // TBD : input file name should be correct file path where we downloaded the file
+                    // make sure to have correct path, where we want to download the file
                     using (Stream fileStream = new FileStream(path + input.fileName, FileMode.Create))
                     {
                         responseStream.CopyTo(fileStream);
@@ -44,7 +44,7 @@ namespace CloudAgnosticStorageAPI.Repository
 
             using (Stream dataStream = httpRequest.GetRequestStream())
             {
-                // TBD : input file name should be correct file path where we downloaded the fiel
+                // make sure to have correct path, from where we want to upload the file
                 using (Stream fileStream = new FileStream(path + "Shaft.jt", FileMode.Open, FileAccess.Read))
                 {
                     fileStream.CopyTo(dataStream);
